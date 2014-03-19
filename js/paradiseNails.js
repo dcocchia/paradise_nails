@@ -8,12 +8,15 @@
 			findCommonElems = function() {
 				self.commonElms.$window = $(window);
 				self.commonElms.$nav = $(".nav");
+				self.commonElms.$home = $("#home");
 				self.commonElms.$header = $(".header");
 				self.commonElms.$heroWrapper = $(".heroWrapper");
 				self.commonElms.$hero = $(".hero");
 				self.commonElms.$about = $("#about");
 				self.commonElms.$services = $("#services");
 				self.commonElms.$products = $("#products");
+				self.commonElms.$salon = $("#salon");
+				self.commonElms.$contact = $("#contact");
 			},
 
 			_nav = function() {
@@ -26,7 +29,7 @@
 				};
 
 				this.bindScrollToNav = function() {
-					var check = _.throttle(navSelf.checkForNavChange, 300); 
+					var check = _.throttle(navSelf.checkForNavChange, 100); 
 					self.commonElms.$window.scroll(check);
 				};
 
@@ -59,6 +62,7 @@
 				this.hide = function() {
 					self.commonElms.$header.removeClass("show");
 				};
+
 			},
 
 			_hero = function() {
@@ -130,14 +134,14 @@
 			this.commonElms.$nav.find(".navBtn").click(self.navClick);
 		};
 
-		this.setWindowHeight = function() {
+		this.setWindowSize = function() {
 			windowHeight = self.commonElms.$window.height();
 			windowWidth = self.commonElms.$window.width();
 			self.hero.setHeight();
 		};
 
 		this.bindWindowSize = function() {
-			var check = _.debounce(self.setWindowHeight, 300); 
+			var check = _.debounce(self.setWindowSize, 300); 
 			self.commonElms.$window.resize(check);
 			if (window.addEventListener) {
 				window.addEventListener('orientationchange', check);
@@ -156,8 +160,24 @@
 		};
 
 		this.slideTo = function(sectionName) {
-			$.scrollTo(this.commonElms["$" + sectionName], 800);
-		};	
+			var $section = this.commonElms["$" + sectionName],
+				position, top;
+
+			if ($section) {
+				top = $section.position().top;
+				position = (top && top - 80 >= 0) ? top - 80 : 0;
+
+				$.scrollTo(position, 800, function() {
+					$section.addClass("reveal");
+				});
+				this.setHash(sectionName);
+			}
+
+		};
+
+		this.setHash = function(hashName) {
+			window.location.hash = (hashName && hashName.toLowerCase) ? hashName.toLowerCase() : "";
+		};
 
 
 	};

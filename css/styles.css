@@ -3,6 +3,7 @@ html {
 	padding: 0;
 	height: 100%;
 	width: 100%;
+	overflow-x: hidden;
 }
 
 body {
@@ -12,13 +13,11 @@ body {
 	padding: 0;
 	background: beige;
 	height: 5000px;
-	overflow: scroll;
 }
 
-.section {
-	width: 100%;
-	display: block;
-	min-height: 500px;
+h1 {
+	padding: 0;
+	margin: 0;
 }
 
 header {
@@ -41,6 +40,10 @@ header.show {
 
 header .mainLogo {
 	display: inline-block;
+}
+
+header .mainLogo h1 {
+	margin-top: 21px;
 }
 
 header .logoMainTxt {
@@ -212,23 +215,77 @@ header .mainLogo a {
 }
 
 .aboutUsBtnWrapper button:hover { 
-	background: rgba(117, 76, 36, 1);
 	cursor: pointer;
+	background: rgba(173, 188, 68, 0.8);
+	color: rgba(117, 76, 36, 1);
+}
+
+.sectionSeperator {
+	height: 500px;
+}
+
+.section {
+	width: 100%;
+	display: block;
+	min-height: 500px;
+	box-shadow: 0px 7px 14px -4px rgba(0, 0, 0, 0.8);
+	position: relative;
+	z-index: 5;
+}
+
+.section a,
+.section a:visited,
+.section a:active {
+	text-decoration: none;
+	color: #adbc44;
+}
+
+.section a:hover { 
+	text-decoration: underline;
+}
+
+#home.section {
+	z-index: 6;
+}
+
+.section .sectionWrapper {
+	
+}
+
+.sectionWrapper .sectionHead {
+	padding: 20px 0;
+	background-color: #adbc44;
+	color: rgba(117, 76, 36, 1);
+}
+
+.sectionWrapper h1 {
+	text-align: center;
+	font-family: PoiretOne;
+	font-size: 36px;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	padding: 10px 20px;
+	width: 350px;
+	margin: 0 auto;
+}
+
+.sectionBody .topText {
+	width: 75%;
+	text-align: center;
+	margin: 0 auto;
+	font-family: PoiretOne;
+	padding: 20px 0;
+	font-size: 18px;
+	line-height: 1.5;
+	font-weight: 400;
+	letter-spacing: .01rem;
+	border-bottom: 1px solid rgba(117, 76, 36, 1);
+	margin-top: 10px;
 }
 
 @font-face {
   font-family: PoiretOne;
   src: url('font/Poiret_One/PoiretOne-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: Sacramento;
-  src: url('font/Sacramento/Sacramento-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: Parisienne;
-  src: url('font/Parisienne/Parisienne-Regular.ttf') format('truetype');
 }
 
 @font-face {
