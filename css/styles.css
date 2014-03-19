@@ -10,19 +10,29 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
+	background: beige;
 	height: 5000px;
+	overflow: scroll;
+}
+
+.section {
+	width: 100%;
+	display: block;
+	min-height: 500px;
 }
 
 header {
 	position: fixed;
+	z-index: 1000;
 	width: 100%;
-	top: -100%;
+	top: -90px;
 	height: 80px;
-	background: none repeat scroll 0 0 rgba(46, 30, 5, 0.95);
-	box-shadow: 0px 3px 8px #666;
-	-webkit-transition: 1s top ease;
-	-moz-transition: 1s top ease;
-	transition: 1s top ease;
+	background: rgba(117, 76, 36, 0.7);
+	background-image: url("../img/pattern.png");
+	box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.7);
+	-webkit-transition: .3s top ease;
+	-moz-transition: .3s top ease;
+	transition: .3s top ease;
 }
 
 header.show {
@@ -33,11 +43,23 @@ header .mainLogo {
 	display: inline-block;
 }
 
+header .logoMainTxt {
+	font-family: ClickerScript;
+	margin-left: 60px;
+}
+
+header .logoSubTxt {
+	font-family: PoiretOne;
+	font-size: 15px;
+	color: #000;
+}
+
 nav {
 	display: inline-block;
 	height: 100%;
 	float: right;
 	width: 65%;
+	font-family: PoiretOne;
 }
 
 nav ul {
@@ -93,9 +115,35 @@ header .mainLogo a {
 	text-align: center;
 }
 
+.heroText h1,
+.heroText h3 {
+	left: 0;
+	margin: auto;
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	z-index: 5;
+	font-family: ClickerScript;
+}
+
 .heroText h1 {
-	margin: 0;
-	padding: 0;
+	line-height: 200px;
+	margin-top: -100px;
+	background: rgba(117, 76, 36, 0.6);
+	background-image: url("../img/pattern.png");
+	color: #adbc44;
+	font-size: 56px;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
+	font-family: ClickerScript;
+}
+
+.heroText h3 {
+	line-height: 275px;
+	margin-top: -100px;
+	font-size: 20px;
+	font-family: PoiretOne;
+	color: #000;
 }
 
 .hero {
@@ -142,4 +190,48 @@ header .mainLogo a {
 
 .heroImg.five {
 	background-image: url(../img/heroImages/test5.jpg);
+}
+
+.aboutUsBtnWrapper {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	z-index: 11;
+}
+
+.aboutUsBtnWrapper button {
+	margin: 0 auto;
+	display: block;
+	margin-top: 130px;
+	padding: 15px 50px;
+	background: rgba(117, 76, 36, 0.8);
+	font-family: PoiretOne;
+	font-size: 16px;
+	color: #adbc44;
+	border: 1px solid;
+}
+
+.aboutUsBtnWrapper button:hover { 
+	background: rgba(117, 76, 36, 1);
+	cursor: pointer;
+}
+
+@font-face {
+  font-family: PoiretOne;
+  src: url('font/Poiret_One/PoiretOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Sacramento;
+  src: url('font/Sacramento/Sacramento-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Parisienne;
+  src: url('font/Parisienne/Parisienne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: ClickerScript;
+  src: url('font/Clicker_Script/ClickerScript-Regular.ttf') format('truetype');
 }

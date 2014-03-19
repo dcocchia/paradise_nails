@@ -6,10 +6,14 @@
 			windowWidth = $(window).width(),
 
 			findCommonElems = function() {
+				self.commonElms.$window = $(window);
 				self.commonElms.$nav = $(".nav");
 				self.commonElms.$header = $(".header");
-				self.commonElms.$window = $(window);
+				self.commonElms.$heroWrapper = $(".heroWrapper");
 				self.commonElms.$hero = $(".hero");
+				self.commonElms.$about = $("#about");
+				self.commonElms.$services = $("#services");
+				self.commonElms.$products = $("#products");
 			},
 
 			_nav = function() {
@@ -27,11 +31,13 @@
 				};
 
 				this.checkForNavChange = function() {
-					var triggerPoint = 500; //100 px
-					if (!isShowing && document.body.scrollTop > windowHeight) {
+					var top = (document.documentElement && document.documentElement.scrollTop) || 
+              document.body.scrollTop;
+
+					if (!isShowing && top > windowHeight) {
 						isShowing = true;
 						navSelf.show();
-					} else if (isShowing && document.body.scrollTop <= windowHeight) {
+					} else if (isShowing && top <= windowHeight) {
 						isShowing = false;
 						navSelf.hide();
 					}
@@ -104,8 +110,25 @@
 
 			self.nav = new _nav();
 			self.nav.init();
+
+			self.bindClickEvents();
+
+			self.intiSkrollr();
 			
-		}
+		};
+
+		this.intiSkrollr = function() {
+			var s = skrollr.init();
+		};
+
+		this.bindClickEvents = function() {
+			//learn more btn
+			this.commonElms.$heroWrapper.find("#learnMore").click(self.navClick);
+			//home logo
+			this.commonElms.$header.find("#logo").click(self.navClick);
+			//nav buttons
+			this.commonElms.$nav.find(".navBtn").click(self.navClick);
+		};
 
 		this.setWindowHeight = function() {
 			windowHeight = self.commonElms.$window.height();
@@ -116,8 +139,26 @@
 		this.bindWindowSize = function() {
 			var check = _.debounce(self.setWindowHeight, 300); 
 			self.commonElms.$window.resize(check);
-			window.addEventListener('orientationchange', check);
+			if (window.addEventListener) {
+				window.addEventListener('orientationchange', check);
+			} else {
+				window.attachEvent('orientationchange', check);
+			}
 		};
+
+		this.navClick = function(e) {
+			e.preventDefault();
+
+			var target = e.currentTarget,
+				slideTo = $(target).attr("data-slide-to");
+
+			self.slideTo(slideTo);
+		};
+
+		this.slideTo = function(sectionName) {
+			$.scrollTo(this.commonElms["$" + sectionName], 800);
+		};	
+
 
 	};
 
