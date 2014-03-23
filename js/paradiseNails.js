@@ -37,12 +37,17 @@
 					var top = (document.documentElement && document.documentElement.scrollTop) || 
               document.body.scrollTop;
 
-					if (!isShowing && top > windowHeight) {
+              console.log("top: ", top);
+               console.log("windowHeight: ", windowHeight - 85);
+
+					if (!isShowing && top > (windowHeight - 85) ) {
 						isShowing = true;
 						navSelf.show();
-					} else if (isShowing && top <= windowHeight) {
+						console.log("show!");
+					} else if (isShowing && top <= (windowHeight - 85) ) {
 						isShowing = false;
 						navSelf.hide();
+						console.log("hide!");
 					}
 				};
 

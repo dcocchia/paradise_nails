@@ -222,6 +222,49 @@ header .mainLogo a {
 
 .sectionSeperator {
 	height: 500px;
+	position: relative;
+
+}
+
+.sectionSeperator .sectionOverlay {
+	background-image: url("../img/pattern.png");
+	position: absolute;
+	z-index: 53;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.sectionSeperator .sectionImage {
+	background-size: cover;
+	-webkit-filter: blur(3px);
+	-moz-filter: blur(5px);
+	-o-filter: blur(5px);
+	-ms-filter: blur(5px);
+	filter: blur(5px);
+	z-index: 0;
+	top: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.sectionSeperator .sectionImage.img1 { 
+	background-image: url(../img/backgroundImages/BG1.jpg);
+}
+
+.sectionSeperator .sectionImage.img2 { 
+	background-image: url(../img/backgroundImages/BG2.jpg);
+}
+
+.sectionSeperator .sectionImage.img3 { 
+	background-image: url(../img/backgroundImages/BG3.jpg);
+}
+
+.sectionSeperator .sectionImage.img4 { 
+	background-image: url(../img/backgroundImages/BG4.jpg);
 }
 
 .section {
@@ -230,7 +273,7 @@ header .mainLogo a {
 	min-height: 500px;
 	box-shadow: 0px 7px 14px -4px rgba(0, 0, 0, 0.8);
 	position: relative;
-	z-index: 5;
+	z-index: 55;
 }
 
 .section a,
@@ -281,6 +324,110 @@ header .mainLogo a {
 	letter-spacing: .01rem;
 	border-bottom: 1px solid rgba(117, 76, 36, 1);
 	margin-top: 10px;
+}
+
+.map {
+	margin-bottom: -5px;
+}
+
+.storeInfo,
+.contactForm {
+	font-family: PoiretOne;
+	font-size: 18px;
+	line-height: 1.5;
+	font-weight: 400;
+	letter-spacing: .01rem;
+	position: relative;
+	z-index: 60;
+	display: inline-block;
+}
+
+.storeInfo {
+	width: 33%;
+	margin-left: 4%;
+	background: rgba(255, 255, 255, 0.5);
+	padding: 3%;
+	float: left;
+}
+
+.storeInfo p {
+	margin: 0
+}
+
+.storeInfo .infoLabel {
+	margin: 0;
+	font-size: 18px;
+}
+
+.storeInfo .infoWrapper {
+	margin-bottom: 15px;
+}
+
+.storeInfo .infoWrapper a {
+	color: rgba(117, 76, 36, 1);
+}
+
+.contactForm {
+	margin-left: 4%;
+	width: 45%;
+	padding: 3%;
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.contactFormWrapper {
+	position: relative;
+	padding-top: 60px;
+	overflow: hidden;
+	min-height: 600px;
+}
+
+.contactFormWrapper .backgroundImg {
+	background-size: cover;
+	background: url(../img/backgroundImages/bg1.jpg);
+	-webkit-filter: blur(3px);
+	-moz-filter: blur(5px);
+	-o-filter: blur(5px);
+	-ms-filter: blur(5px);
+	filter: blur(5px);
+	z-index: 0;
+	top: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.contactFormWrapper .backgroundOverlay {
+	background-image: url("../img/pattern.png");
+	position: absolute;
+	z-index: 53;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.contactForm .inputWrapper{
+	
+}
+
+.contactForm .inputLabel{
+	display: inline-block;
+	width: 200px;
+	vertical-align: top;
+}
+
+.contactForm .input{
+	background: #adbc44;
+	border: 1px solid rgba(117, 76, 36, 1);
+	padding: 10px;
+	font-family: PoiretOne;
+	font-size: 18px;
+	line-height: 1.5;
+	font-weight: bold;
+	letter-spacing: .01rem;
+	color: #fff;
+	width: 400px;
 }
 
 @font-face {
