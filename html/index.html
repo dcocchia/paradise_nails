@@ -70,7 +70,7 @@
 
 	<div class="sectionSeperator">
 		<div class="sectionOverlay"></div>
-		<div class="sectionImage img1"></div>
+		<div class="sectionImage img1 skrollable skrollable-between"  data-500="background-position:0px 0px;" data-1500="background-position:0px -300px;"></div>
 	</div>
 
 	<section id="services" class="section">
@@ -86,7 +86,7 @@
 
 	<div class="sectionSeperator">
 		<div class="sectionOverlay"></div>
-		<div class="sectionImage img2"></div>
+		<div class="sectionImage img2 skrollable skrollable-between" data-1200="background-position:0px 0px;" data-2400="background-position:0px -300px;"></div>
 	</div>
 
 	<section id="products" class="section">
@@ -102,7 +102,8 @@
 
 	<div class="sectionSeperator">
 		<div class="sectionOverlay"></div>
-		<div class="sectionImage img3"></div>
+		<div class="sectionImage img3 skrollable skrollable-between"  data-2050="background-position:0px 0px;" data-3250="background-position:0px -300px;"></div>
+		<div class="reviewsWrapper"></div>
 	</div>
 
 	<section id="salon" class="section">
@@ -112,7 +113,7 @@
 
 	<div class="sectionSeperator">
 		<div class="sectionOverlay"></div>
-		<div class="sectionImage img4"></div>
+		<div class="sectionImage img4 skrollable skrollable-between" data-2820="background-position:0px 0px;" data-4010="background-position:0px -300px;"></div>
 	</div>
 
 	<section id="contact" class="section">
@@ -123,14 +124,11 @@
 			<div class="map">
 				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d415.94948518114876!2d-117.72390124914423!3d33.48587065721624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcf01a9e11a393%3A0x7e5cbbe95c9cff51!2sParadise+Nails!5e0!3m2!1sen!2sus!4v1395538191793" width="100%" height="300" frameborder="0" style="border:0"></iframe>
 			</div>
-			<div class="sectionBody">
-				<p class="topText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium aliquet consectetur. In ut auctor enim. Phasellus volutpat magna et vulputate sagittis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras consequat condimentum lacinia. <a href="#">Proin at odio pharetra magna dictum fringilla.</a> Praesent dapibus purus tellus. Quisque imperdiet lorem tempor sagittis fringilla.</p>
-			</div>
 			<div class="contactFormWrapper">
 				<div class="backgroundImg"></div>
 				<div class="backgroundOverlay"></div>
 				<div class="storeInfo">
-					<h2>Our Address</h2>
+					<h2>Our Contact Info</h2>
 					<div class="infoWrapper">
 						<h3 class="infoLabel">Address</h3>
 						<p>32880 Pacific Coast Hwy</p>
@@ -153,13 +151,13 @@
 						<p>Sat – 10am-6pm</p>
 					</div>
 				</div>
-				<div class="contactForm">
+				<form class="contactForm">
 					<div class="inputWrapper">
 						<span class="inputLabel">Name</span>
 						<input name="name" type="text" class="input" />
 					</div>
 					<div class="inputWrapper">
-						<span class="inputLabel">Email (required)</span>
+						<span class="inputLabel">Email</span>
 						<input name="email" type="email" class="input" />
 					</div>
 					<div class="inputWrapper">
@@ -168,9 +166,11 @@
 					</div>
 					<div class="inputWrapper">
 						<span class="inputLabel">Your Message</span>
-						<textarea name="body" class="input"> </textarea>
+						<textarea name="body" class="input"></textarea>
 					</div>
-				</div>
+					<button class="submitContactBtn">Send</button>
+					<p class="allFields">All fields required</p>
+				</form>
 			</div>
 		</div>
 	</section>
