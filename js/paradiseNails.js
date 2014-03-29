@@ -104,7 +104,20 @@
 			};
 
 			_yelpHelper = function() {
-				var yelpSelf = this;
+				var yelpSelf = this,
+					timer,
+					currentReview = 1,
+					reviewsLength = 3,
+					reviewsNameArr = ["one", "two", "three"];
+
+				this.init = function() {
+					//yelpSelf.getReviews(); this will do everything once ajax call works
+					yelpSelf.buildReviewElement();
+					yelpSelf.buildIndicators();
+					yelpSelf.bindIndicatorClick();
+					yelpSelf.showReviews();
+					yelpSelf.startAutoScroll();
+				};
 
 				this.reviews = [
 					{
@@ -119,6 +132,34 @@
 							id: "AUEDVbP9XNlOcgYOAfR8yg",
 							image_url: "http://s3-media2.ak.yelpcdn.com/photo/0CX0RSoz8NkPlOTo7Ckqdg/ms.jpg",
 							name: "Holly E."
+						}
+					},
+					{
+						excerpt: "I gave this restaurant two stars just because of the extremely quick delivery and friendly delivery guy, but the food was nothing I would order again....",
+						id: "-RDZxLTUExM9Q02x4hZmHg",
+						rating: 3,
+						rating_image_large_url: "http://media2.ak.yelpcdn.com/static/20101216220207235/img/ico/stars/stars_large_2.png",
+						rating_image_small_url: "http://media4.ak.yelpcdn.com/static/201012164278297776/img/ico/stars/stars_small_2.png",
+						rating_image_url: "http://media4.ak.yelpcdn.com/static/201012163489049252/img/ico/stars/stars_2.png",
+						time_created: 1317939620,
+						user: {
+							id: "AUEDVbP9XNlOcgYOAfR8yg",
+							image_url: "http://s3-media2.ak.yelpcdn.com/photo/0CX0RSoz8NkPlOTo7Ckqdg/ms.jpg",
+							name: "Bob H."
+						}
+					},
+					{
+						excerpt: "I gave this restaurant two stars just because of the extremely quick delivery and friendly delivery guy, but the food was nothing I would order again....",
+						id: "-RDZxLTUExM9Q02x4hZmHg",
+						rating: 4,
+						rating_image_large_url: "http://media2.ak.yelpcdn.com/static/20101216220207235/img/ico/stars/stars_large_2.png",
+						rating_image_small_url: "http://media4.ak.yelpcdn.com/static/201012164278297776/img/ico/stars/stars_small_2.png",
+						rating_image_url: "http://media4.ak.yelpcdn.com/static/201012163489049252/img/ico/stars/stars_2.png",
+						time_created: 1317939620,
+						user: {
+							id: "AUEDVbP9XNlOcgYOAfR8yg",
+							image_url: "http://s3-media2.ak.yelpcdn.com/photo/0CX0RSoz8NkPlOTo7Ckqdg/ms.jpg",
+							name: "Dan F."
 						}
 					}
 				];
@@ -137,6 +178,7 @@
 						success: function (data){
 							yelpSelf.reviews = data.reviews;
 							yelpSelf.showReviews();
+							yelpHelper.startAutoScroll();
 						},
 						error: function(a, b, c) {
 							console.warn("ERROR: yelpHelper.getReviews(): ", a, b, c);
@@ -149,13 +191,15 @@
 					var	i = 0,
 						reviewsLen = yelpSelf.reviews.length,
 						renderedTpl = "",
-						thisReview, thisUser, template;
+						thisReview, thisUser, template, indexClass;
 
 						for (; i < reviewsLen; i += 1) {
 							thisReview = yelpSelf.reviews[i];
 							thisUser = thisReview.user;
+							indexClass = reviewsNameArr[i];
+							show = (i === 0) ? "show" : "";
 
-							template = "<div class='reviewWrapper'><p class='viewOnYelp'>View on <a href='http://www.yelp.com/biz/paradise-nails-dana-point-2?hrid=" + thisReview.id + "' target='_blank'>Yelp.com</a></p><div class='yelpUser'><p class='name'><a href='http://www.yelp.com/user_details?userid=" + thisUser.id + "' target='_blank'>" + thisUser.name + "</a></p><div class='userImg'><img src='" + thisUser.image_url + "' /></div></div><div class='reviewRating'>" + thisReview.rating + "/5</div><p class='reviewTxt'>" + thisReview.excerpt + "</p></div>";
+							template = "<div class='reviewWrapper " + indexClass + " " + show + "'><p class='viewOnYelp'>View on <a href='http://www.yelp.com/biz/paradise-nails-dana-point-2?hrid=" + thisReview.id + "' target='_blank'>Yelp.com</a></p><div class='yelpUser'><p class='name'><a href='http://www.yelp.com/user_details?userid=" + thisUser.id + "' target='_blank'>" + thisUser.name + "</a></p><div class='userImg'><img src='" + thisUser.image_url + "' /></div></div><div class='reviewRating'>" + thisReview.rating + "/5</div><p class='reviewTxt'>" + thisReview.excerpt + "</p></div>";
 
 							 renderedTpl += template;
 						}
@@ -163,9 +207,94 @@
 						return renderedTpl;
 				};
 
+				this.buildIndicators = function() {
+					var i = 0,
+						reviewsLen = yelpSelf.reviews.length,
+						$indicatorsWrapper = self.commonElms.$reviews.find(".indicators"),
+						indicatorTpl, activeClass;
+
+					for (; i < reviewsLen; i += 1) {
+						activeClass = (i === 0) ? "active" : "";
+						indexClass = reviewsNameArr[i];
+						indicatorTpl  = "<span class='indicator " + activeClass + " " + indexClass + "' data-index='" + i + "'></span>";
+
+						$indicatorsWrapper.append(indicatorTpl);
+					}
+				};
+
+				this.setIndicatorActive = function(indexClass) {
+					self.commonElms.$reviews.find(".indicator").filter("." + indexClass).addClass("active");
+				};
+
+				this.toggleActiveIndicator = function (indexClass) {
+					self.commonElms.$reviews.find(".indicator").removeClass("active").filter("." + indexClass).addClass("active");
+				}
+
+				this.setAllIndicatorsInActive = function() {
+					self.commonElms.$reviews.find(".indicator").removeClass("active");
+				};
+
 				this.showReviews = function() {
 					var html = yelpSelf.buildReviewElement();
-					self.commonElms.$reviews.html(html);
+					self.commonElms.$reviews.prepend(html);
+				};
+
+				this.startAutoScroll = function() {
+					timer = setInterval(yelpSelf.scrollNext, 5000);
+				};
+
+				this.stopAutoScroll = function() {
+					clearInterval(timer);
+				};
+
+				this.scrollNext = function() {
+					if (currentReview < reviewsLength) {
+						currentReview += 1;
+						yelpSelf.hideReview(reviewsNameArr[currentReview - 2]);
+					} else {
+						yelpSelf.hideReview(reviewsNameArr[currentReview - 1]);
+						currentReview = 1;
+					}
+
+					yelpSelf.toggleActiveIndicator(reviewsNameArr[currentReview - 1]);
+					yelpSelf.showReview(reviewsNameArr[currentReview - 1]);
+				};
+
+				this.showReview = function(classIndex) {
+					self.commonElms.$reviews.find(".reviewWrapper." + classIndex).addClass("show");
+				};
+
+				this.hideReview = function(classIndex) {
+					self.commonElms.$reviews.find(".reviewWrapper." + classIndex).removeClass("show");
+				};
+
+				this.hideAllReviews = function() {
+					self.commonElms.$reviews.find(".reviewWrapper").removeClass("show");
+				}
+
+				this.toggleReview = function(classIndex) {
+					self.commonElms.$reviews.find(".reviewWrapper").removeClass("show").filter("." + classIndex).addClass("show");
+				};
+
+				this.scrollTo = function(classIndex) {
+					yelpSelf.toggleReview(classIndex);
+					yelpSelf.toggleActiveIndicator(classIndex);
+					currentReview = _.indexOf(reviewsNameArr, classIndex) + 1;
+				};
+
+				this.onIndicatorClick = function(e) {
+					e.preventDefault();
+
+					var target = e.currentTarget,
+						$target = $(target),
+						index = parseInt($target.attr("data-index")),
+						classIndex = reviewsNameArr[index];
+
+					yelpSelf.scrollTo(classIndex);
+				};
+
+				this.bindIndicatorClick = function() {
+					self.commonElms.$reviews.find(".indicator").off().click(yelpSelf.onIndicatorClick);
 				};
 			};
 
@@ -305,8 +434,7 @@
 			self.intiSkrollr();
 
 			self.yelpHelper = new _yelpHelper();
-			//self.yelpHelper.getReviews();
-			self.yelpHelper.showReviews();
+			self.yelpHelper.init();
 			
 		};
 

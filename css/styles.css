@@ -473,9 +473,9 @@ header .mainLogo a {
 }
 
 .reviewsWrapper {
-	padding: 20px 60px;
 	margin: 0 auto;
 	width: 75%;
+	height: 225px;
 	position: relative;
 	background-color: rgba(2, 2, 2, 0.6);
 	color: #fff;
@@ -484,13 +484,25 @@ header .mainLogo a {
 }
 
 .reviewWrapper {
-	height: 100%;
-	width: 100%;
+	padding: 20px 60px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
 	font-family: PoiretOne;
 	font-size: 18px;
 	line-height: 1.5;
 	font-weight: 400;
 	letter-spacing: .01rem;
+	opacity: 0;
+	-webkit-transition: 0.6s opacity linear;
+	-moz-transition: 0.6s opacity linear;
+	transition: 0.6s opacity linear;
+}
+
+.reviewWrapper.show {
+	opacity: 1;
 }
 
 .reviewWrapper .yelpUser {
@@ -530,6 +542,39 @@ header .mainLogo a {
 .reviewWrapper .viewOnYelp {
 	float: right;
 	margin: 0;
+}
+
+.indicators {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	z-index: 15;
+	width: 60%;
+	margin-left: -30%;
+	padding-left: 0;
+	list-style: none;
+	text-align: center;
+}
+
+.indicator {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	border: 1px solid #fff;
+	margin-right: 5px;
+	display: inline-block;
+	-webkit-transition: 0.3s background-color linear;
+	-moz-transition: 0.3s background-color linear;
+	transition: 0.3s background-color linear;
+}
+
+.indicator.active {
+	background-color: #adbc44;
+}
+
+.indicator:hover {
+	cursor: pointer;
+	background-color: #fff;
 }
 
 @font-face {
