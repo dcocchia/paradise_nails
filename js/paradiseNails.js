@@ -107,8 +107,8 @@
 				var yelpSelf = this,
 					timer,
 					currentReview = 1,
-					reviewsLength = 3,
-					reviewsNameArr = ["one", "two", "three"];
+					reviewsLength = 5,
+					reviewsNameArr = ["one", "two", "three", "four", "five"];
 
 				this.init = function() {
 					//yelpSelf.getReviews(); this will do everything once ajax call works
@@ -121,45 +121,58 @@
 
 				this.reviews = [
 					{
-						excerpt: "I gave this restaurant two stars just because of the extremely quick delivery and friendly delivery guy, but the food was nothing I would order again....",
-						id: "-RDZxLTUExM9Q02x4hZmHg",
-						rating: 2,
-						rating_image_large_url: "http://media2.ak.yelpcdn.com/static/20101216220207235/img/ico/stars/stars_large_2.png",
-						rating_image_small_url: "http://media4.ak.yelpcdn.com/static/201012164278297776/img/ico/stars/stars_small_2.png",
-						rating_image_url: "http://media4.ak.yelpcdn.com/static/201012163489049252/img/ico/stars/stars_2.png",
-						time_created: 1317939620,
+						excerpt: "Great service!! I will definitely come back.  I messed up a nail getting into my car and came back inside to see if they could fix it. No problem, they were really nice about it.",
+						id: "0PLeunZMD6d9Tij0rPFjKw",
+						rating: 5,
+						time_created: "4/4/2013",
 						user: {
-							id: "AUEDVbP9XNlOcgYOAfR8yg",
-							image_url: "http://s3-media2.ak.yelpcdn.com/photo/0CX0RSoz8NkPlOTo7Ckqdg/ms.jpg",
-							name: "Holly E."
+							id: "U2W1WQeuzbIRq7F9a3Ox5w",
+							image_url: "http://s3-media1.ak.yelpcdn.com/photo/TZeyUvRpOav6nLdNWVhx5Q/ms.jpg",
+							name: "Liza F."
 						}
 					},
 					{
-						excerpt: "I gave this restaurant two stars just because of the extremely quick delivery and friendly delivery guy, but the food was nothing I would order again....",
-						id: "-RDZxLTUExM9Q02x4hZmHg",
-						rating: 3,
-						rating_image_large_url: "http://media2.ak.yelpcdn.com/static/20101216220207235/img/ico/stars/stars_large_2.png",
-						rating_image_small_url: "http://media4.ak.yelpcdn.com/static/201012164278297776/img/ico/stars/stars_small_2.png",
-						rating_image_url: "http://media4.ak.yelpcdn.com/static/201012163489049252/img/ico/stars/stars_2.png",
-						time_created: 1317939620,
+						excerpt: "Paradise nails was phenomenal!! The service exceeded all my expectations and by far has been the best mani/pedi I've ever had. They have a great selection of colors and gels. Pricing was by far the best I've seen from New York to California. This will be my regular place and the place I take all my friends.",
+						id: "gE1bAJcMp3MnyQlqJYNKqA",
+						rating: 5,
+						time_created: "1/5/2013",
 						user: {
-							id: "AUEDVbP9XNlOcgYOAfR8yg",
-							image_url: "http://s3-media2.ak.yelpcdn.com/photo/0CX0RSoz8NkPlOTo7Ckqdg/ms.jpg",
-							name: "Bob H."
+							id: "Y10TYXFSPu0SV3RpsiLYDA",
+							image_url: "http://s3-media4.ak.yelpcdn.com/photo/YYl35X8s2gkrbXCPw-VHFw/ms.jpg",
+							name: "Yolanda H."
 						}
 					},
 					{
-						excerpt: "I gave this restaurant two stars just because of the extremely quick delivery and friendly delivery guy, but the food was nothing I would order again....",
-						id: "-RDZxLTUExM9Q02x4hZmHg",
-						rating: 4,
-						rating_image_large_url: "http://media2.ak.yelpcdn.com/static/20101216220207235/img/ico/stars/stars_large_2.png",
-						rating_image_small_url: "http://media4.ak.yelpcdn.com/static/201012164278297776/img/ico/stars/stars_small_2.png",
-						rating_image_url: "http://media4.ak.yelpcdn.com/static/201012163489049252/img/ico/stars/stars_2.png",
-						time_created: 1317939620,
+						excerpt: "Love this salon! The ladies there are so sweet and very helpful. Their prices are great, plus they offer all organic mani and pedi products for an extra cost. Love love love this place!",
+						id: "NvMFZajDWoI9t2u3CBsTzg",
+						rating: 5,
+						time_created: "2/9/2013",
 						user: {
-							id: "AUEDVbP9XNlOcgYOAfR8yg",
-							image_url: "http://s3-media2.ak.yelpcdn.com/photo/0CX0RSoz8NkPlOTo7Ckqdg/ms.jpg",
-							name: "Dan F."
+							id: "DrKxdCfZJJYSif2-NCLmcQ",
+							image_url: "http://s3-media3.ak.yelpcdn.com/photo/3Wl70F2TZEZZ8agzXIKgig/60s.jpg",
+							name: "Shahnaz G."
+						}
+					},
+					{
+						excerpt: "Fabulous atmosphere, great staff.  Went once and had a great basic pedi, went a second time and treated myself to a pricier pedi.  Love the huge selection of nail colors.   Definitely worth the wait (if there's one) and price.",
+						id: "QhFz9PXxs7IlOYFunOUHOw",
+						rating: 5,
+						time_created: "3/10/2014",
+						user: {
+							id: "MyBboQtdR_7yl8LIBuqWxQ",
+							image_url: "http://s3-media2.ak.yelpcdn.com/photo/q4fpmnMUe0kgikX40PV36g/ms.jpg",
+							name: "S.R. L."
+						}
+					},
+					{
+						excerpt: "Exceptional quality. Totally relaxing hot stone massage and hot wax manicure for a very affordable price. Revitalizing!",
+						id: "Mm93fVJCw-72YzU5M89GRg",
+						rating: 5,
+						time_created: "7/18/2012",
+						user: {
+							id: "_0rx8Pt081jX4zWWI8tf6w",
+							image_url: "http://s3-media2.ak.yelpcdn.com/photo/S8sWHhpeOuuox3zjRwLx_w/60s.jpg",
+							name: "Erin M."
 						}
 					}
 				];
@@ -408,6 +421,21 @@
 						});
 					}
 				}
+			};
+
+			_imageGallery = function($el) {
+				var gallerySelf = this,
+					$images = $el.find(".galleryImg");
+
+				this.bindImageClicks = function() {
+					$images.off().click(gallerySelf.onGalleryImageClick);
+				}
+
+				this.onGalleryImageClick = function(e) {
+					e.preventDefault();
+
+
+				};
 			};
 
 		this.commonElms = {};

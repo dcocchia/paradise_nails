@@ -126,6 +126,25 @@ header .mainLogo a {
 	color: #fff;
 }
 
+.col {
+	float: left;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.col.one {
+	width: 100%;
+}
+
+.col.two {
+	width: 50%;
+}
+
+.col.three {
+	width: 33.33%;
+}
+
 .heroWrapper {
 	position: relative;
 	width: 100%;
@@ -332,10 +351,22 @@ header .mainLogo a {
 
 .map {
 	margin-bottom: -5px;
+	height: 300px;
+	overflow: hidden;
+	box-shadow: 1px 1px 10px #474747;
+	z-index: 80;
+	position: relative;
+}
+
+.map iframe {
+	position: relative;
+	top: -80px;
 }
 
 .storeInfo,
-.contactForm {
+.contactForm,
+.servicesWrapper,
+.productShowcaseWrapper {
 	font-family: PoiretOne;
 	font-size: 18px;
 	line-height: 1.5;
@@ -382,7 +413,7 @@ header .mainLogo a {
 	position: relative;
 	padding-top: 60px;
 	overflow: hidden;
-	min-height: 600px;
+	min-height: 730px;
 }
 
 .contactFormWrapper .backgroundImg {
@@ -503,6 +534,7 @@ header .mainLogo a {
 
 .reviewWrapper.show {
 	opacity: 1;
+	z-index: 100;
 }
 
 .reviewWrapper .yelpUser {
@@ -525,7 +557,7 @@ header .mainLogo a {
 	float: left;
 	width: 75%;
 	margin-left: 25px;
-	margin-top: 50px;
+	margin-top: 3%;
 }
 
 .reviewWrapper a,
@@ -544,11 +576,19 @@ header .mainLogo a {
 	margin: 0;
 }
 
+.reviewWrapper .userImg {
+	width: 90px;
+}
+
+.reviewWrapper .userImg img {
+	width: 100%;
+}
+
 .indicators {
 	position: absolute;
 	bottom: 20px;
 	left: 50%;
-	z-index: 15;
+	z-index: 100005;
 	width: 60%;
 	margin-left: -30%;
 	padding-left: 0;
@@ -575,6 +615,85 @@ header .mainLogo a {
 .indicator:hover {
 	cursor: pointer;
 	background-color: #fff;
+}
+
+.servicesWrapper {
+	width: 100%;
+}
+
+.serviceWrapper {
+	text-align: center;
+}
+
+.serviceWrapper ul {
+	padding: 0;
+}
+
+.serviceWrapper li {
+	list-style: none;
+}
+
+.serviceWrapper .serviceHeader {
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.productShowcaseWrapper {
+	height: auto;
+	width: 100%;
+	overflow: hidden;
+	padding-top: 20px;
+}
+
+.productImgWrapper {
+}
+
+.productImgWrapper img {
+	max-width: 50%;
+	border-radius: 20px;
+	margin: 0 auto;
+	display: block;
+}
+
+.productImgWrapper img.axxium {
+	max-width: 70%;
+}
+
+.productShowcaseWrapper h3 {
+	font-size: 46px;
+	text-align: center;
+	letter-spacing: 1rem;
+	color: #555;
+}
+
+.productTxtWrapper {
+	padding: 10px 85px;
+}
+
+.productTxtWrapper.topMargin {
+	margin-top: 65px;
+}
+
+.productHero {
+	width: 100%;
+	overflow: hidden;
+}
+
+.productHero img {
+	width: 40%;
+	display: block;
+	border-radius: 20px;
+}
+
+.productHero img.left { 
+	float: left;
+	margin-left: 20px;
+}
+
+.productHero img.right {
+	float: right;
+	margin-right: 20px;
 }
 
 @font-face {
