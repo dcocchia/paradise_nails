@@ -18,6 +18,7 @@
 				self.commonElms.$salon = $("#salon");
 				self.commonElms.$contact = $("#contact");
 				self.commonElms.$reviews = $(".reviewsWrapper");
+				self.commonElms.$productGallery = $(".productGallery");
 			},
 
 			_nav = function() {
@@ -112,6 +113,7 @@
 
 				this.init = function() {
 					//yelpSelf.getReviews(); this will do everything once ajax call works
+					yelpSelf.randomizeReviews();
 					yelpSelf.buildReviewElement();
 					yelpSelf.buildIndicators();
 					yelpSelf.bindIndicatorClick();
@@ -176,6 +178,20 @@
 						}
 					}
 				];
+
+				this.randomizeReviews = function() {
+					var reivewsLen = yelpSelf.reviews.length,
+						i = reivewsLen - 1,
+						temp, j;
+
+					for (; i > 0; i--) {
+						j = Math.floor(Math.random() * (i + 1));
+						temp = yelpSelf.reviews[i];
+						yelpSelf.reviews[i] = yelpSelf.reviews[j];
+						yelpSelf.reviews[j] = temp;
+					}
+
+				};
 
 				this.getReviews = function() {
 					$.ajax({
@@ -423,19 +439,62 @@
 				}
 			};
 
-			_imageGallery = function($el) {
+			_productGallery = function() {
 				var gallerySelf = this,
-					$images = $el.find(".galleryImg");
+					$galNav = self.commonElms.$productGallery.find(".galNav"),
+					$btns = $galNav.find(".galNavBtn"),
+					$panelWrapper = self.commonElms.$productGallery.find(".panelWrapper");
 
-				this.bindImageClicks = function() {
-					$images.off().click(gallerySelf.onGalleryImageClick);
-				}
+					this.init = function() {
+						gallerySelf.bindGalNavBtns();
+					};
 
-				this.onGalleryImageClick = function(e) {
-					e.preventDefault();
+					this.bindGalNavBtns = function() {
+						$btns.click(gallerySelf.onGalNavBtnClick);
+					};
 
+					this.onGalNavBtnClick = function(e) {
+						e.preventDefault();
 
-				};
+						var target = e.currentTarget,
+							$target = $(target),
+							panelName = $target.attr('data-panel-name');
+
+						gallerySelf.togglePanel(panelName);
+						gallerySelf.toggleNavBtnActive(panelName);
+					};
+
+					this.showPanel = function(panelName) {
+						$panelWrapper.find(".panel").filter("[data-name='" + panelName + "']").removeClass("hidden");
+					};
+
+					this.hidePandel = function(panelName) {
+						$panelWrapper.find(".panel").filter("[data-name='" + panelName + "']").addClass("hidden");
+					};
+
+					this.hideAllPanels = function() {
+						$panelWrapper.find(".panel").addClass("hidden");
+					};
+
+					this.togglePanel = function(panelName) {
+						$panelWrapper.find(".panel").addClass("hidden").filter("[data-name='" + panelName + "']").removeClass("hidden");
+					};
+
+					this.setNavBtnActive = function($btn) {
+						$btn.addClass("active");
+					};
+
+					this.setNavBtnInActive = function($btn) {
+						$btn.removeClass("active");
+					};
+
+					this.setAllNavBtnsInActive = function() {
+						$btns.removeClass("active");
+					};
+
+					this.toggleNavBtnActive = function(panelName) {
+						$btns.removeClass("active").filter("[data-panel-name='" + panelName + "']").addClass("active");
+					};
 			};
 
 		this.commonElms = {};
@@ -463,6 +522,9 @@
 
 			self.yelpHelper = new _yelpHelper();
 			self.yelpHelper.init();
+
+			self.productGallery = new _productGallery();
+			self.productGallery.init();
 			
 		};
 

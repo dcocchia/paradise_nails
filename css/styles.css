@@ -74,7 +74,7 @@ header .logoSubTxt {
 	color: #000;
 }
 
-nav {
+.nav {
 	display: inline-block;
 	height: 100%;
 	float: right;
@@ -82,7 +82,7 @@ nav {
 	font-family: PoiretOne;
 }
 
-nav ul {
+.nav ul {
 	height: 100%;
 	width: 100%;
 	margin: 0;
@@ -90,7 +90,7 @@ nav ul {
 	font-size: 0;
 }
 
-nav li{
+.nav li{
 	list-style: none;
 	display: inline-block;
 	width: 20%;
@@ -99,7 +99,7 @@ nav li{
 	font-size: 20px;
 }
 
-nav li a {
+.nav li a {
 	display: block;
 	height: 100%;
 	width: 100%;
@@ -111,7 +111,7 @@ nav li a {
 	transition: 0.4s background linear;
 }
 
-nav li a:hover {
+.nav li a:hover {
 	background: none repeat scroll 0 0 #adbc44;
 	color: #fff;
 	box-shadow: 0px 8px 22px -11px #000;
@@ -646,6 +646,10 @@ header .mainLogo a {
 	padding-top: 20px;
 }
 
+.productShowcaseWrapper.topMargin {
+	margin-top: 55px;
+}
+
 .productImgWrapper {
 }
 
@@ -694,6 +698,94 @@ header .mainLogo a {
 .productHero img.right {
 	float: right;
 	margin-right: 20px;
+}
+
+.productGallery {
+
+}
+
+.galNav {
+	height: 50px;
+	background: rgba(117, 76, 36, 1);
+	color: #fff;
+	font-family: PoiretOne;
+	background-image: url("../img/pattern.png");
+}
+
+.galNav ul {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-size: 0;
+}
+
+.galNav ul .galNavBtn {
+	list-style: none;
+	display: inline-block;
+	width: 25%;
+	height: 100%;
+	text-align: center;
+	font-size: 20px;
+	line-height: 50px;
+	position: relative;
+	-webkit-transition: 0.2s background linear;
+	-moz-transition: 0.2s background linear;
+	transition: 0.2s background linear;
+	-webkit-transition: 0.2s color linear;
+	-moz-transition: 0.2s color linear;
+	transition: 0.2s color linear;
+}
+
+.galNav ul .galNavBtn:hover {
+	cursor: pointer;
+	color: #adbc44;
+}
+
+.galNav ul .galNavBtn.active {
+	color: rgba(117, 76, 36, 1);
+	background: #adbc44;
+}
+
+.galNav ul .galNavBtn .downArrow {
+	width: 0;
+	height: 0;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 20px solid #adbc44;
+	position: absolute;
+	top: 100%;
+	left: 45%;
+	opacity: 0;
+	-webkit-transition: 0.2s opacity linear;
+	-moz-transition: 0.2s opacity linear;
+	transition: 0.2s opacity linear;
+}
+
+.galNav ul .galNavBtn.active .downArrow {
+	opacity: 1;
+}
+
+.galNavBtn.letterSpacing {
+	letter-spacing: .25rem;
+}
+
+.productGallery .panel {
+	min-height: 600px;
+}
+
+.productGallery .panel.hidden {
+	display: none;
+}
+
+iframe.axxiumVid {
+	margin: 0 auto;
+	display: block;
+}
+
+h3.axxium,
+h3.avojuice {
+	margin: 0;
+	letter-spacing: .3rem;
 }
 
 @font-face {
