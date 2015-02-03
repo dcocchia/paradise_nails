@@ -71,8 +71,8 @@
 				var heroSelf = this,
 					timer,
 					currentHero = 1,
-					heroLength = 5,
-					heroNameArr = ["one", "two", "three", "four", "five"];
+					heroLength = 6,
+					heroNameArr = ["one", "two", "three", "four", "five", "six"];
 
 				this.init = function() {
 					heroSelf.setHeight();

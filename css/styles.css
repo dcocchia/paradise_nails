@@ -212,23 +212,27 @@ header .mainLogo a {
 }
 
 .heroImg.one {
-	background-image: url(../img/heroImages/test1.jpg);
+	background-image: url(../img/heroImages/chairs.jpg);
 }
 
 .heroImg.two {
-	background-image: url(../img/heroImages/test2.jpg);
+	background-image: url(../img/heroImages/desks.jpg);
 }
 
 .heroImg.three {
-	background-image: url(../img/heroImages/test3.jpg);
+	background-image: url(../img/heroImages/entrance.jpg);
 }
 
 .heroImg.four {
-	background-image: url(../img/heroImages/test4.jpg);
+	background-image: url(../img/heroImages/flowers.jpg);
 }
 
 .heroImg.five {
-	background-image: url(../img/heroImages/test5.jpg);
+	background-image: url(../img/heroImages/party1.jpg);
+}
+
+.heroImg.six {
+	background-image: url(../img/heroImages/party2.jpg);
 }
 
 .aboutUsBtnWrapper {
