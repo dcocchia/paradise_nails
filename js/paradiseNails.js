@@ -497,6 +497,14 @@
 					};
 			};
 
+			touchEnabled = function() {
+				if(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+					self.touchEnabled = true;
+				} else {
+					self.touchEnabled = false;
+				}
+			}();
+
 		this.commonElms = {};
 
 		this.init = function() {
@@ -518,7 +526,7 @@
 
 			self.bindClickEvents();
 
-			self.intiSkrollr();
+			if (!self.touchEnabled) { self.intiSkrollr(); }
 
 			self.yelpHelper = new _yelpHelper();
 			self.yelpHelper.init();
