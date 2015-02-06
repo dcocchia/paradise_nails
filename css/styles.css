@@ -318,6 +318,10 @@ header .mainLogo a {
 	z-index: 6;
 }
 
+#reviewsHeader.section {
+	min-height: 0;
+}
+
 .section .sectionWrapper {
 	
 }
@@ -635,6 +639,10 @@ header .mainLogo a {
 
 .serviceWrapper li {
 	list-style: none;
+}
+
+.serviceWrapper h3 {
+	text-decoration: underline;
 }
 
 .serviceWrapper .serviceHeader {

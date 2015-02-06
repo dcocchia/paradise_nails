@@ -15,9 +15,9 @@
 				self.commonElms.$about = $("#about");
 				self.commonElms.$services = $("#services");
 				self.commonElms.$products = $("#products");
-				self.commonElms.$salon = $("#salon");
 				self.commonElms.$contact = $("#contact");
 				self.commonElms.$reviews = $(".reviewsWrapper");
+				self.commonElms.$reviewsHeader = $("#reviewsHeader");
 				self.commonElms.$productGallery = $(".productGallery");
 			},
 
