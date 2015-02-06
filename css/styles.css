@@ -71,7 +71,7 @@ header .logoMainTxt {
 header .logoSubTxt {
 	font-family: PoiretOne;
 	font-size: 15px;
-	color: #000;
+	color: #adbc44;
 }
 
 .nav {
@@ -182,7 +182,7 @@ header .mainLogo a {
 	margin-top: -100px;
 	font-size: 20px;
 	font-family: PoiretOne;
-	color: #000;
+	color: #fff;
 }
 
 .hero {
@@ -316,6 +316,10 @@ header .mainLogo a {
 
 #home.section {
 	z-index: 6;
+}
+
+#about.section {
+	min-height: 300px;
 }
 
 #reviewsHeader.section {
