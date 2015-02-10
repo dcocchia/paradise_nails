@@ -9,6 +9,7 @@ html {
 body {
 	position: relative;
 	height: 100%;
+	width: 100%;
 	margin: 0;
 	padding: 0;
 	background: beige;
@@ -832,6 +833,10 @@ h3.avojuice {
 
 
 @media (max-width: 600px) {
+	body {
+		overflow-x: hidden;
+	}
+
 	.header {
 		height: 60px;
 		top: -70px;
@@ -916,13 +921,12 @@ h3.avojuice {
 	}
 
 	.mini-nav-btn {
-		position: absolute;
-		float: left;
+		position: relative;
 		padding: 0;
 		margin-right: 15px;
 		border: 1px solid transparent;
 		background: transparent;
-		top: 0;
+		top: -47px;
 		height: 100%;
 		width: 55px;
 	}
@@ -937,5 +941,9 @@ h3.avojuice {
 
 	.mini-nav-btn .icon-bar+.icon-bar {
 		margin-top: 4px;
+	}
+
+	#home.section {
+		min-height: 345px;
 	}
 }

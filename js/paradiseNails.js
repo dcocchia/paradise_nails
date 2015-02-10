@@ -43,7 +43,6 @@
 					if (!isShowing && top > (windowHeight - 85) ) {
 						isShowing = true;
 						navSelf.show();
-						navSelf.showSubMenu();
 					} else if (isShowing && top <= (windowHeight - 85) ) {
 						isShowing = false;
 						navSelf.hide();
