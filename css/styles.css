@@ -384,7 +384,7 @@ header .mainLogo a {
 .servicesWrapper,
 .productShowcaseWrapper {
 	font-family: PoiretOne;
-	font-size: 20px;
+	font-size: 20px;-
 	line-height: 1.5;
 	font-weight: 400;
 	letter-spacing: .01rem;
@@ -823,6 +823,12 @@ h3.avojuice {
   src: url('font/Clicker_Script/ClickerScript-Regular.ttf') format('truetype');
 }
 
+@media (min-width: 601px) {
+	.header .mini-nav-btn {
+		display: none;
+	}
+}
+
 
 
 @media (max-width: 600px) {
@@ -856,6 +862,80 @@ h3.avojuice {
 	}
 
 	.header .nav {
-		display: none;
+		display: inline-block;
+		position: fixed;
+		left: -210px;
+		top: 60px;
+		width: 200px;
+		height: auto;
+		background-color: #754C24;
+		background: rgba(117, 76, 36, 0.7);
+		background-image: url("../img/pattern.png");
+		box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.7);
+		-webkit-transition: .3s left ease;
+		-moz-transition: .3s left ease;
+		transition: .3s left ease;
+	}
+
+	.header .nav.show {
+		left: 0;
+	}
+
+	.header .nav li {
+		width: 100%;
+		height: 60px;
+		display: block;
+		border-bottom: 1px solid #000;
+		background: rgba(173, 188, 68, 0.7);
+	}
+
+	.header .nav li a {
+		line-height: 60px;
+		color: #fff;
+	}
+
+	.header .mini-nav-btn {
+		display: inline-block;
+	}
+
+	.header .mini-nav-btn.active {
+		background: rgba(173, 188, 68, 0.7);
+	}
+
+	.header .mini-nav-btn:focus {
+		outline: none;
+	}
+
+	.header .mini-nav-btn:hover {
+		background: rgba(173, 188, 68, 0.7);
+	}
+
+	.header .mini-nav-btn.active .icon-bar,
+	.header .mini-nav-btn:hover .icon-bar {
+		background-color: #fff;
+	}
+
+	.mini-nav-btn {
+		position: absolute;
+		float: left;
+		padding: 0;
+		margin-right: 15px;
+		border: 1px solid transparent;
+		background: transparent;
+		top: 0;
+		height: 100%;
+		width: 55px;
+	}
+
+	.mini-nav-btn .icon-bar {
+		display: block;
+		width: 22px;
+		height: 2px;
+		background-color: #adbc44;
+		margin-left: 15px;
+	}
+
+	.mini-nav-btn .icon-bar+.icon-bar {
+		margin-top: 4px;
 	}
 }

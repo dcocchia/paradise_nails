@@ -4,6 +4,7 @@
 		var self = this,
 			windowHeight = $(window).height(),
 			windowWidth = $(window).width(),
+			viewSize = 'large',
 
 			findCommonElems = function() {
 				self.commonElms.$window = $(window);
@@ -42,9 +43,11 @@
 					if (!isShowing && top > (windowHeight - 85) ) {
 						isShowing = true;
 						navSelf.show();
+						navSelf.showSubMenu();
 					} else if (isShowing && top <= (windowHeight - 85) ) {
 						isShowing = false;
 						navSelf.hide();
+						navSelf.hideSubMenu();
 					}
 				};
 
@@ -64,6 +67,22 @@
 				this.hide = function() {
 					self.commonElms.$header.removeClass("show");
 				};
+
+				this.hideSubMenu = function() {
+					self.commonElms.$nav.removeClass("show");
+					self.commonElms.$header.find(".mini-nav-btn").removeClass("active");
+				};
+
+				this.showSubMenu = function() {
+					self.commonElms.$nav.addClass("show");
+					self.commonElms.$header.find(".mini-nav-btn").addClass("active");
+				};
+
+				this.toggleSubMenu = function() {
+					self.commonElms.$nav.toggleClass("show");
+					self.commonElms.$header.find(".mini-nav-btn").toggleClass("active");
+				};
+
 
 			},
 
@@ -512,6 +531,8 @@
 
 			self.bindWindowSize();
 
+			self.setViewSize();
+
 			self.startSmoothScroll();
 
 			self.hero = new _hero();
@@ -547,6 +568,9 @@
 			this.commonElms.$header.find("#logo").click(self.navClick);
 			//nav buttons
 			this.commonElms.$nav.find(".navBtn").click(self.navClick);
+			//mini-nav open
+			this.commonElms.$header.find(".mini-nav-btn").click(self.nav.toggleSubMenu);
+
 
 			this.commonElms.$contact.find(".submitContactBtn").click(self.contactForm.submitContactForm);
 		};
@@ -555,6 +579,7 @@
 			windowHeight = self.commonElms.$window.height();
 			windowWidth = self.commonElms.$window.width();
 			self.hero.setHeight();
+			self.setViewSize()
 		};
 
 		this.bindWindowSize = function() {
@@ -567,6 +592,14 @@
 			}
 		};
 
+		this.setViewSize = function() {
+			if (windowWidth <= 600) {
+				viewSize = 'small';
+			} else {
+				viewSize = 'large';
+			}
+		};
+
 		this.navClick = function(e) {
 			e.preventDefault();
 
@@ -574,15 +607,19 @@
 				slideTo = $(target).attr("data-slide-to");
 
 			self.slideTo(slideTo);
+			if (viewSize === 'small') {
+				self.nav.hideSubMenu();
+			}
 		};
 
 		this.slideTo = function(sectionName) {
 			var $section = this.commonElms["$" + sectionName],
+				offset = (viewSize === "large") ? 80 : 60,
 				position, top;
 
 			if ($section) {
 				top = $section.position().top;
-				position = (top && top - 80 >= 0) ? top - 80 : 0;
+				position = (top && top - offset >= 0) ? top - offset : 0;
 
 				$.scrollTo(position, 800, function() {
 					$section.addClass("reveal");
