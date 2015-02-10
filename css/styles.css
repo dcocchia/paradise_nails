@@ -968,7 +968,9 @@ h3.avojuice {
 	}
 
 	.reviewsWrapper {
+		height: 230px;
 		width: 100%;
+		top: 36px;
 	}
 
 	.reviewsWrapper .reviewWrapper {
@@ -986,14 +988,14 @@ h3.avojuice {
 
 	.reviewWrapper .reviewTxt {
 		margin-left: 10px;
-		margin-top: 5px;
+		margin-top: 25px;
 		font-size: 14px;
 		line-height: 16px;
 		width: 65%;
 	}
 
 	.indicators {
-		bottom: 10px;
+		bottom: 25px;
 		left: 52px;
 	}
 
@@ -1008,6 +1010,15 @@ h3.avojuice {
 		width: 80%;
 		min-width: 80%;
 		max-width: 80%;
+	}
+
+	.contactForm .submitContactBtn {
+		float: left;
+	}
+
+	.contactForm .allFields {
+		float: left;
+		margin: 10px 0 0 10px;
 	}
 
 	.col.two,
