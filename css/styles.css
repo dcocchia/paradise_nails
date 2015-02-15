@@ -536,7 +536,7 @@ header .mainLogo a {
 }
 
 .reviewWrapper {
-	padding: 20px 60px;
+	padding: 20px 30px;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -576,7 +576,7 @@ header .mainLogo a {
 
 .reviewWrapper .reviewTxt {
 	float: left;
-	width: 75%;
+	width: 70%;
 	margin-left: 25px;
 	margin-top: 3%;
 }
@@ -840,6 +840,27 @@ h3.avojuice {
 	.header .mainLogo .logoSubTxt {
 		display: block;
 		margin-left: 60px;
+	}
+}
+
+@media (min-width: 656px) and (max-width:  950px) {
+	.reviewsWrapper {
+		width: 100%;
+		top: 40px;
+	}
+
+	.reviewWrapper {
+		padding: 10px;
+	}
+
+	.reviewWrapper .reviewTxt {
+		margin-top: 0;
+	}
+
+	.indicators {
+		left: initial;
+		right: 0;
+		width: 100px;
 	}
 }
 
