@@ -824,17 +824,35 @@ h3.avojuice {
   src: url('font/Clicker_Script/ClickerScript-Regular.ttf') format('truetype');
 }
 
-@media (min-width: 601px) {
+@media (min-width: 656px) and (max-width:  1040px) {
+	.header {
+		
+	}
+
+	.header .mainLogo h1 a {
+		display: block;
+	}
+
+	.header .mainLogo h1 {
+		margin-top: 10px;
+	}
+
+	.header .mainLogo .logoSubTxt {
+		display: block;
+		margin-left: 60px;
+	}
+}
+
+@media (min-width: 656px) {
 	.header .mini-nav-btn {
 		display: none;
 	}
 }
 
-
-
-@media (max-width: 600px) {
+@media (max-width: 655px) {
 	body {
 		overflow-x: hidden;
+		height: auto;
 	}
 
 	.header {
