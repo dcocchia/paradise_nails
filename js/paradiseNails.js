@@ -515,14 +515,6 @@
 					};
 			};
 
-			touchEnabled = function() {
-				if(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
-					self.touchEnabled = true;
-				} else {
-					self.touchEnabled = false;
-				}
-			}();
-
 		this.commonElms = {};
 
 		this.init = function() {
@@ -531,8 +523,6 @@
 			self.bindWindowSize();
 
 			self.setViewSize();
-
-			self.startSmoothScroll();
 
 			self.hero = new _hero();
 			self.hero.init();
@@ -546,18 +536,12 @@
 
 			self.bindClickEvents();
 
-			if (!self.touchEnabled) { self.intiSkrollr(); }
-
 			self.yelpHelper = new _yelpHelper();
 			self.yelpHelper.init();
 
 			self.productGallery = new _productGallery();
 			self.productGallery.init();
 			
-		};
-
-		this.intiSkrollr = function() {
-			var s = skrollr.init();
 		};
 
 		this.bindClickEvents = function() {
@@ -630,10 +614,6 @@
 
 		this.setHash = function(hashName) {
 			window.location.hash = (hashName && hashName.toLowerCase) ? hashName.toLowerCase() : "";
-		};
-
-		this.startSmoothScroll = function() {
-			$.srSmoothscroll();
 		};
 
 	};

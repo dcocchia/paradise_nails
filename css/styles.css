@@ -288,6 +288,7 @@ header .mainLogo a {
 
 .sectionSeperator .sectionImage.img2 { 
 	background-image: url(../img/backgroundImages/BG2.jpg);
+	background-position-y: 550px;
 }
 
 .sectionSeperator .sectionImage.img3 { 
@@ -377,7 +378,6 @@ header .mainLogo a {
 
 .map iframe {
 	position: relative;
-	top: -80px;
 }
 
 .storeInfo,
@@ -434,7 +434,7 @@ header .mainLogo a {
 	position: relative;
 	padding-top: 60px;
 	overflow: hidden;
-	min-height: 730px;
+	padding-bottom: 18px;
 }
 
 .contactFormWrapper .backgroundImg {
@@ -1063,5 +1063,9 @@ h3.avojuice {
 	.col.two,
 	.col.three {
 		width: 100%;
+	}
+
+	.sectionImage.img2 {
+		background-position-y: 573px;
 	}
 }
