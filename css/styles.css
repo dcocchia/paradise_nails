@@ -439,7 +439,7 @@ header .mainLogo a {
 
 .contactFormWrapper .backgroundImg {
 	background-size: cover;
-	background: url(../img/backgroundImages/bg1.jpg);
+	background: url(../img/backgroundImages/BG1.jpg);
 	-webkit-filter: blur(3px);
 	-moz-filter: blur(5px);
 	-o-filter: blur(5px);
