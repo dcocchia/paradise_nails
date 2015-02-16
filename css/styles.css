@@ -1068,4 +1068,28 @@ h3.avojuice {
 	.sectionImage.img2 {
 		background-position-y: 573px;
 	}
+
+	.heroImg.one {
+		background-image: url(../img/heroImages/chairs_small.jpg);
+	}
+
+	.heroImg.two {
+		background-image: url(../img/heroImages/desks_small.jpg);
+	}
+
+	.heroImg.three {
+		background-image: url(../img/heroImages/entrance_small.jpg);
+	}
+
+	.heroImg.four {
+		background-image: url(../img/heroImages/flowers_small.jpg);
+	}
+
+	.heroImg.five {
+		background-image: url(../img/heroImages/party1_small.jpg);
+	}
+
+	.heroImg.six {
+		background-image: url(../img/heroImages/party2_small.jpg);
+	}
 }
