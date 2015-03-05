@@ -438,7 +438,8 @@
 
 					if (self.validator.validateForm()) {
 						$.ajax({
-							url: "",
+							type: "POST",
+							url: "inc/send_form_email.php",
 							data: {
 								name: formSelf.$name.val(),
 								email: formSelf.$email.val(),
@@ -446,7 +447,14 @@
 								body: formSelf.$body.val()
 							},
 							success: function(data) {
-								$form.html("<h3>Thank you!</h3><p>Your message has been delivered. We'll get back to you as soon we can.</p>")
+								var parsedData = JSON.parse(data);
+
+								if (parsedData.success === "yes") {
+									$form.html("<h3>Thank you!</h3><p>Your message has been delivered. We'll get back to you as soon we can.</p>")	
+								} else {
+									$form.html("<h3>Uh oh!</h3><p>It looks like there was a problem sending your message. Please try again later or give us a call!</p>").addClass("error");	
+								}
+								
 							},
 							error: function(a,b,c) {
 								$form.html("<h3>Uh oh!</h3><p>It looks like there was a problem sending your message. Please try again later or give us a call!</p>").addClass("error");
